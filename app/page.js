@@ -3,8 +3,9 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-   <>
-   <h1><center>sedthawur</center></h1>
-   </>
+    <>
+    <div><center >Home Pang</center></div>
+ 
+ </>
   );
 }
