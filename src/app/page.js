@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
    <>
-   sedhawur
-   </>  
- );
+   <h1><center>sedthawur</center></h1>
+   </>
+  );
 }
