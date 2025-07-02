@@ -30,16 +30,9 @@ export default function RootLayout({ children }) {
         <NavigationBar /> {/* Navbar ด้านบน */}
         
       
-        {/* Main content */}
-        <main className="flex-grow-1">
-          <div className="container py-4">
-            <div className="row">
-              <div className="col">
+
                 {children}
-              </div>
-            </div>
-          </div>
-        </main>
+
 
         {/* Footer */}
         <Footer />

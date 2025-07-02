@@ -10,8 +10,8 @@ export default function () {
       </Carousel>
       <div className="container-fluid py-5 mx-auto">
         <div className="row">
-          <div className="col">
-            <div className="card" style={{ width: '20rem' }}>
+          <div className="col-md-4">
+            <div className="card"><br></br>
               <img src="/img/(1).png" className="card-img-top" alt="(weight 90 px) (height 350 px)"></img>
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
@@ -20,8 +20,8 @@ export default function () {
               </div>
             </div>
           </div>
-          <div className="col"><br></br>
-            <div className="card" style={{ width: '20rem' }}>
+          <div className="col-md-4"><br></br>
+            <div className="card">
               <img src="/img/(2).jpg" className="card-img-top" alt="{weight 100px }{height 350 px}"></img>
               <div className="card-body"> 
                 <h5 className="card-title">Card title</h5>
@@ -30,8 +30,8 @@ export default function () {
               </div>
             </div>
           </div>
-          <div className="col"><br></br>
-            <div className="card" style={{ width: '20rem' }}>
+          <div className="col-md-4"><br></br>
+            <div className="card">
               <img src="/img/(3).jpg" className="card-img-top" alt="{eight 100px} {height 350[x]}"></img>
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
@@ -42,7 +42,7 @@ export default function () {
           </div>
         </div>
       </div>
-      <Footer />
+ 
     </>
   );
 }
