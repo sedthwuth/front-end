@@ -1,6 +1,11 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "./components/NavigationBar";
+
+import NavigationBar from "../app/components/NavigationBar";
+import Footer from "../app/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,11 +25,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-         <Navigation />
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased d-flex flex-column min-vh-100`}>
+       
+        <NavigationBar /> {/* Navbar ด้านบน */}
+        
+      
+        {/* Main content */}
+        <main className="flex-grow-1">
+          <div className="container py-4">
+            <div className="row">
+              <div className="col">
+                {children}
+              </div>
+            </div>
+          </div>
+        </main>
+
+        {/* Footer */}
+        <Footer />
+
       </body>
     </html>
   );
