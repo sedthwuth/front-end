@@ -12,31 +12,31 @@ export default function () {
         <div className="row">
           <div className="col-md-4">
             <div className="card"><br></br>
-              <img src="/img/(1).png" className="card-img-top" alt="(weight 90 px) (height 350 px)"></img>
+              <img src="/img/1.png" className="card-img-top" alt=""></img>
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title">การเขียนเว็บไฃต์เบื้องต้น</h5>
+                <p className="card-text">เรียนรู้วิธีการในการเขียนเว็บไชต์เบื้องต้น</p>
+                <a href="/about/page.js" className="btn btn-primary">ดูรายละเอียด</a>
               </div>
             </div>
           </div>
-          <div className="col-md-4"><br></br>
-            <div className="card">
-              <img src="/img/(2).jpg" className="card-img-top" alt="{weight 100px }{height 350 px}"></img>
+          <div className="col-md-4">
+            <div className="card"><br></br>
+              <img src="/img/css2.png" className="card-img-top" alt=""></img>
               <div className="card-body"> 
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title">เรียนรู้การใช้ css </h5>
+                <p className="card-text">เรียนรู้ในการ css ในการตกเเต่งเว็บไชต์</p>
+                <a href="#" className="btn btn-primary">ดูรายละเอียด</a>
               </div>
             </div>
           </div>
-          <div className="col-md-4"><br></br>
-            <div className="card">
-              <img src="/img/(3).jpg" className="card-img-top" alt="{eight 100px} {height 350[x]}"></img>
+          <div className="col-md-4">
+            <div className="card"><br></br>
+              <img src="/img/ดีไซน์ที่ยังไม่ได้ตั้งชื่อ.png" className="card-img-top" alt=""></img>
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
+                <h5 className="card-title">การใช้ภาษา python</h5>
+                <p className="card-text">เรียนรู้ในการใฃ้ภาษา python เบื้องต้น</p>
+                <a href="#" className="btn btn-primary">ดูรายละเอียด</a>
               </div>
             </div>
           </div>

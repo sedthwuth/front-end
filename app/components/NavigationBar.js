@@ -24,13 +24,13 @@ export default function NavigationBar() {
               <Link href="/" className="nav-link active" aria-current="page">Home</Link>
             </li>
             <li className="nav-item">
-              <Link href="/about" className="nav-link">about</Link>
+              <Link href="/about" className="nav-link">เกี่ยวกับ</Link>
             </li>
             <li className="nav-item">
-              <Link href="/service" className="nav-link">service</Link>
+              <Link href="/service" className="nav-link">บริการ</Link>
             </li>
             <li className="nav-item">
-              <Link href="/contact" className="nav-link">contact</Link>
+              <Link href="/contact" className="nav-link">ติดต่อเรา</Link>
             </li>
             
             <li className="nav-item dropdown">

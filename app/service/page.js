@@ -1,7 +1,7 @@
 export default function Home(){
     return (
       <>
-     <div><center >service</center></div> 
+     <div><center >บริการ</center></div> 
        </>
     );
 }
