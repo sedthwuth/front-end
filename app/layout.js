@@ -3,9 +3,10 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import RegisterPage from './Register/page';
 import NavigationBar from "../app/components/NavigationBar";
 import Footer from "../app/components/Footer";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,17 +27,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased d-flex flex-column min-vh-100`}>
-       
-        <NavigationBar /> {/* Navbar ด้านบน */}
-        
-      
-
-                {children}
-
-
-        {/* Footer */}
+        <NavigationBar />
+        {children}
         <Footer />
-
       </body>
     </html>
   );

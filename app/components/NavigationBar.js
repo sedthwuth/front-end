@@ -49,7 +49,7 @@ export default function NavigationBar() {
               <a className="nav-link disabled" aria-disabled="true">Disabled</a>
             </li>
           </ul>
-
+           <Link href="/Register" className="nav-link">สมัครสมาชิก</Link> 
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-light" type="submit">Search</button>
