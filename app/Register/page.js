@@ -1,7 +1,8 @@
 // app/Register/page.js
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Swal from 'sweetalert2'; // Import SweetAlert2
 
 export default function RegisterPage() {
   // กำหนด State สำหรับเก็บข้อมูลฟอร์มทั้งหมด
@@ -31,58 +32,116 @@ export default function RegisterPage() {
     e.preventDefault();
     console.log('Form Data Submitted:', formData);
     // Logic to submit formData to API
+    // ตัวอย่าง: fetch('/api/register', { method: 'POST', body: JSON.stringify(formData) });
+
+    // แสดง SweetAlert2 เมื่อลงทะเบียนสำเร็จ
+    Swal.fire({
+      icon: 'success',
+      title: 'ลงทะเบียนสำเร็จ!',
+      text: 'คุณสามารถเข้าสู่ระบบได้แล้ว',
+      confirmButtonText: 'ตกลง'
+    });
   };
 
+  // useEffect สำหรับโหลด Bootstrap JS เมื่อ Component ถูก Mount
+  // สำคัญสำหรับ Bootstrap components เช่น Modal, Navbar Toggler
+  useEffect(() => {
+    // ตรวจสอบว่า window และ document มีอยู่ (สำหรับ Next.js client-side rendering)
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      import('bootstrap/dist/js/bootstrap.bundle.min.js')
+        .then((bootstrap) => {
+          // สามารถเข้าถึง Bootstrap objects ได้ที่นี่ ถ้าจำเป็น
+          // เช่น new bootstrap.Modal(document.getElementById('termsModal'));
+        })
+        .catch((err) => console.error("Failed to load Bootstrap JS", err));
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 font-inter">
-      <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-2xl border border-gray-200 transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
-        <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-800 drop-shadow-sm">สมัครสมาชิก</h1>
+    <div className="container-fluid bg-light min-vh-100 d-flex align-items-center justify-content-center py-4">
+      <style jsx global>{`
+        body {
+          background-color: #f8f9fa; /* สีพื้นหลังอ่อนๆ */
+        }
+        .register-card {
+          max-width: 600px;
+          width: 100%;
+          padding: 30px;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .register-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .form-control:focus, .form-select:focus, .form-check-input:focus {
+          border-color: #80bdff; /* สีฟ้าอ่อนเมื่อ focus */
+          box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+        .btn-primary {
+          background-image: linear-gradient(to right, #007bff, #6f42c1); /* Gradient สำหรับปุ่ม */
+          border: none;
+          transition: all 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          opacity: 0.9;
+        }
+      `}</style>
+      
+      {/* ปรับโครงสร้างเพื่อจัดให้อยู่กึ่งกลางโดยตรง */}
+      <div className="register-card">
+        <h2 className="text-center mb-4 text-primary fw-bold">สมัครสมาชิก</h2>
         <form onSubmit={handleSubmit}>
+          
           {/* ชื่อผู้ใช้ (text) */}
-          <div className="mb-5">
-            <label htmlFor="username" className="block text-gray-700 text-sm font-semibold mb-2">
-              ชื่อผู้ใช้:
-            </label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out placeholder-gray-400 text-gray-800"
-              placeholder="ป้อนชื่อผู้ใช้"
-              required
-            />
+          <div className="mb-3">
+            <label htmlFor="username" className="form-label">ชื่อผู้ใช้</label>
+            <div className="input-group">
+              <span className="input-group-text"><i className="bi bi-person"></i></span>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="ป้อนชื่อผู้ใช้"
+                required
+              />
+            </div>
           </div>
 
           {/* รหัสผ่าน (password) */}
-          <div className="mb-5">
-            <label htmlFor="password" className="block text-gray-700 text-sm font-semibold mb-2">
-              รหัสผ่าน:
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out placeholder-gray-400 text-gray-800"
-              placeholder="ป้อนรหัสผ่าน"
-              required
-            />
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">รหัสผ่าน</label>
+            <div className="input-group">
+              <span className="input-group-text"><i className="bi bi-lock"></i></span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="ป้อนรหัสผ่าน"
+                required
+              />
+            </div>
           </div>
 
           {/* คำนำหน้าชื่อ (select) */}
-          <div className="mb-5">
-            <label htmlFor="prefix" className="block text-gray-700 text-sm font-semibold mb-2">
-              คำนำหน้าชื่อ:
-            </label>
+          <div className="mb-3">
+            <label htmlFor="prefix" className="form-label">คำนำหน้าชื่อ</label>
             <select
               id="prefix"
               name="prefix"
               value={formData.prefix}
               onChange={handleChange}
-              className="block w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out text-gray-800"
+              className="form-select"
               required
             >
               <option value="">เลือกคำนำหน้าชื่อ</option>
@@ -94,133 +153,160 @@ export default function RegisterPage() {
           </div>
 
           {/* ชื่อ (text) */}
-          <div className="mb-5">
-            <label htmlFor="firstName" className="block text-gray-700 text-sm font-semibold mb-2">
-              ชื่อ:
-            </label>
+          <div className="mb-3">
+            <label htmlFor="firstName" className="form-label">ชื่อ</label>
             <input
               type="text"
               id="firstName"
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out placeholder-gray-400 text-gray-800"
+              className="form-control"
               placeholder="ป้อนชื่อ"
               required
             />
           </div>
 
           {/* นามสกุล (text) */}
-          <div className="mb-5">
-            <label htmlFor="lastName" className="block text-gray-700 text-sm font-semibold mb-2">
-              นามสกุล:
-            </label>
+          <div className="mb-3">
+            <label htmlFor="lastName" className="form-label">นามสกุล</label>
             <input
               type="text"
               id="lastName"
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out placeholder-gray-400 text-gray-800"
+              className="form-control"
               placeholder="ป้อนนามสกุล"
               required
             />
           </div>
 
           {/* ที่อยู่ (textarea) */}
-          <div className="mb-5">
-            <label htmlFor="address" className="block text-gray-700 text-sm font-semibold mb-2">
-              ที่อยู่:
-            </label>
+          <div className="mb-3">
+            <label htmlFor="address" className="form-label">ที่อยู่</label>
             <textarea
               id="address"
               name="address"
-              rows="4"
+              rows="3"
               value={formData.address}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out placeholder-gray-400 text-gray-800 resize-y"
+              className="form-control"
               placeholder="ป้อนที่อยู่ของคุณ"
               required
             ></textarea>
           </div>
 
           {/* เพศ (radio) */}
-          <div className="mb-5">
-            <label className="block text-gray-700 text-sm font-semibold mb-2">
-              เพศ:
-            </label>
-            <div className="flex items-center space-x-6">
-              <label htmlFor="male" className="flex items-center text-gray-700 cursor-pointer">
-                <input
-                  type="radio"
-                  id="male"
-                  name="gender"
-                  value="male"
-                  checked={formData.gender === 'male'}
-                  onChange={handleChange}
-                  className="mr-2 h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded-full"
-                  required
-                />
-                ชาย
-              </label>
-
-              <label htmlFor="female" className="flex items-center text-gray-700 cursor-pointer">
-                <input
-                  type="radio"
-                  id="female"
-                  name="gender"
-                  value="female"
-                  checked={formData.gender === 'female'}
-                  onChange={handleChange}
-                  className="mr-2 h-5 w-5 text-pink-500 focus:ring-pink-500 border-gray-300 rounded-full"
-                />
-                หญิง
-              </label>
+          <div className="mb-3">
+            <label className="form-label d-block">เพศ</label>
+            <div className="form-check form-check-inline">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                checked={formData.gender === 'male'}
+                onChange={handleChange}
+                className="form-check-input"
+                required
+              />
+              <label htmlFor="male" className="form-check-label">ชาย</label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                checked={formData.gender === 'female'}
+                onChange={handleChange}
+                className="form-check-input"
+                required
+              />
+              <label htmlFor="female" className="form-check-label">หญิง</label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                type="radio"
+                id="other"
+                name="gender"
+                value="other"
+                checked={formData.gender === 'other'}
+                onChange={handleChange}
+                className="form-check-input"
+                required
+              />
+              <label htmlFor="other" className="form-check-label">อื่นๆ</label>
             </div>
           </div>
 
           {/* วันเกิด (date) */}
-          <div className="mb-6">
-            <label htmlFor="dob" className="block text-gray-700 text-sm font-semibold mb-2">
-              วันเกิด:
-            </label>
+          <div className="mb-3">
+            <label htmlFor="dob" className="form-label">วันเกิด</label>
             <input
               type="date"
               id="dob"
               name="dob"
               value={formData.dob}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out text-gray-800"
+              className="form-control"
               required
             />
           </div>
 
           {/* Checkbox ยอมรับเงื่อนไข (checkbox) */}
-          <div className="mb-8 flex items-center">
+          <div className="mb-4 form-check">
             <input
               type="checkbox"
               id="terms"
               name="terms"
               checked={formData.terms}
               onChange={handleChange}
-              className="mr-3 h-5 w-5 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+              className="form-check-input"
               required
             />
-            <label htmlFor="terms" className="text-sm text-gray-700">
-              ฉันยอมรับ <Link href="/terms" className="text-blue-600 hover:text-blue-800 font-bold underline transition duration-200 ease-in-out">เงื่อนไขการให้บริการ</Link>
+            <label htmlFor="terms" className="form-check-label">
+              ฉันยอมรับ <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal" className="text-decoration-none text-primary fw-bold">เงื่อนไขการให้บริการ</a>
             </label>
           </div>
 
           {/* ปุ่ม Register (button) */}
-          <div className="flex items-center justify-center">
+          <div className="d-grid">
             <button
               type="submit"
-              className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-extrabold text-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+              className="btn btn-primary btn-lg"
             >
               ลงทะเบียน
             </button>
           </div>
         </form>
+      </div>
+
+      {/* Modal สำหรับเงื่อนไขการใช้งาน */}
+      <div className="modal fade" id="termsModal" tabIndex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-scrollable">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="termsModalLabel">เงื่อนไขการใช้งาน</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <p>โปรดอ่านเงื่อนไขการใช้งานของเราอย่างละเอียด...</p>
+              <p>เนื้อหาเงื่อนไขการใช้งานจะปรากฏที่นี่ คุณสามารถเพิ่มข้อความหรือ HTML ได้ตามต้องการ</p>
+              <p>ตัวอย่างเช่น:</p>
+              <ul>
+                <li>การเก็บข้อมูลส่วนบุคคล</li>
+                <li>นโยบายความเป็นส่วนตัว</li>
+                <li>ข้อกำหนดและเงื่อนไขการใช้งานบริการ</li>
+              </ul>
+              <p>การใช้งานเว็บไซต์นี้ถือว่าคุณยอมรับข้อกำหนดและเงื่อนไขทั้งหมด</p>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

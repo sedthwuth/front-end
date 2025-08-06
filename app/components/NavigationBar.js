@@ -1,4 +1,4 @@
-
+// NavigationBar.js
 'use client';
 import Link from "next/link";
 
@@ -6,20 +6,27 @@ export default function NavigationBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link href="/" className="navbar-brand"></Link>
+        {/* Navbar Brand */}
+        <Link href="/" className="navbar-brand">
+          {/* คุณสามารถใส่โลโก้หรือชื่อเว็บไซต์ที่นี่ */}
+        </Link>
 
-        <button className="navbar-toggler" type="button"
+        {/* Navbar Toggler สำหรับ Mobile */}
+        <button 
+          className="navbar-toggler" 
+          type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon" />
         </button>
 
+        {/* Navbar Collapse Content */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
             <li className="nav-item">
               <Link href="/" className="nav-link active" aria-current="page">Home</Link>
             </li>
@@ -32,28 +39,19 @@ export default function NavigationBar() {
             <li className="nav-item">
               <Link href="/contact" className="nav-link">ติดต่อเรา</Link>
             </li>
-            
-            <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" href="#" role="button"
-                 data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </Link>
-              <ul className="dropdown-menu">
-                <li><Link href="#" className="dropdown-item">Action</Link></li>
-                <li><Link href="#" className="dropdown-item">Another action</Link></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><Link href="#" className="dropdown-item">Something else here</Link></li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
           </ul>
-           <Link href="/Register" className="nav-link">สมัครสมาชิก</Link> 
-          <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-light" type="submit">Search</button>
-          </form>
+
+          {/* ปุ่ม Login และ Register */}
+          <div className="d-flex">
+            {/* ปุ่มเข้าสู่ระบบ */}
+            <Link href="/login" className="btn btn-outline-light me-2">
+              เข้าสู่ระบบ
+            </Link>
+            {/* ปุ่มลงทะเบียน */}
+            <Link href="/register" className="btn btn-primary">
+              ลงทะเบียน
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
