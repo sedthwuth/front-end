@@ -9,39 +9,74 @@ export default function RegisterPage() {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    prefix: '',
-    firstName: '',
-    lastName: '',
+    fullname: '',
+    firstname: '',
+    lastname: '',
     address: '',
-    gender: '',
-    dob: '',
+    sex: '',
+    Birthday: '',
     terms: false,
   });
 
-  // ฟังก์ชันสำหรับจัดการการเปลี่ยนแปลงค่าใน Input fields
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prevData => ({
+ const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+  setFormData(prevData => {
+    const updated = {
       ...prevData,
       [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
+    };
+    console.log('Updated formData:', updated); // Debug ตรงนี้
+    return updated;
+  });
+};
 
-  // ฟังก์ชันสำหรับจัดการการส่งฟอร์ม
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form Data Submitted:', formData);
-    // Logic to submit formData to API
-    // ตัวอย่าง: fetch('/api/register', { method: 'POST', body: JSON.stringify(formData) });
 
-    // แสดง SweetAlert2 เมื่อลงทะเบียนสำเร็จ
-    Swal.fire({
-      icon: 'success',
-      title: 'ลงทะเบียนสำเร็จ!',
-      text: 'คุณสามารถเข้าสู่ระบบได้แล้ว',
-      confirmButtonText: 'ตกลง'
+ // ฟังก์ชันสำหรับจัดการการส่งฟอร์ม
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch('http://itdev.cmtc.ac.th:3000/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: formData.username,
+        password: formData.password,
+        fullname: formData.fullname,
+        firstname: formData.firstname,
+        lastname: formData.lastname,
+        address: formData.address,
+        sex: formData.sex,
+        birthday: formData.Birthday,
+      }),
     });
-  };
+
+    if (res.ok) {
+      Swal.fire({
+        icon: 'success',
+        title: 'ลงทะเบียนสำเร็จ!',
+        text: 'คุณสามารถเข้าสู่ระบบได้แล้ว',
+        confirmButtonText: 'ตกลง',
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'เกิดข้อผิดพลาด!',
+        text: 'ไม่สามารถลงทะเบียนได้',
+      });
+    }
+  } catch (error) {
+    console.error('Registration Error:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'เกิดข้อผิดพลาด!',
+      text: error.message,
+    });
+  }
+};
+
 
   // useEffect สำหรับโหลด Bootstrap JS เมื่อ Component ถูก Mount
   // สำคัญสำหรับ Bootstrap components เช่น Modal, Navbar Toggler
@@ -135,11 +170,11 @@ export default function RegisterPage() {
 
           {/* คำนำหน้าชื่อ (select) */}
           <div className="mb-3">
-            <label htmlFor="prefix" className="form-label">คำนำหน้าชื่อ</label>
+            <label htmlFor="firstname" className="form-label">คำนำหน้าชื่อ</label>
             <select
-              id="prefix"
-              name="prefix"
-              value={formData.prefix}
+              id="firstname"
+              name="firstname"
+              value={formData.firstname}
               onChange={handleChange}
               className="form-select"
               required
@@ -154,12 +189,12 @@ export default function RegisterPage() {
 
           {/* ชื่อ (text) */}
           <div className="mb-3">
-            <label htmlFor="firstName" className="form-label">ชื่อ</label>
+            <label htmlFor="fullname" className="form-label">ชื่อ</label>
             <input
               type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
+              id="fullname"
+              name="fullname"
+              value={formData.fullname}
               onChange={handleChange}
               className="form-control"
               placeholder="ป้อนชื่อ"
@@ -169,12 +204,12 @@ export default function RegisterPage() {
 
           {/* นามสกุล (text) */}
           <div className="mb-3">
-            <label htmlFor="lastName" className="form-label">นามสกุล</label>
+            <label htmlFor="lastname" className="form-label">นามสกุล</label>
             <input
               type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
+              id="lastname"
+              name="lastname"
+              value={formData.lastname}
               onChange={handleChange}
               className="form-control"
               placeholder="ป้อนนามสกุล"
@@ -204,9 +239,9 @@ export default function RegisterPage() {
               <input
                 type="radio"
                 id="male"
-                name="gender"
-                value="male"
-                checked={formData.gender === 'male'}
+                name="sex"
+                value="ชาย"
+                checked={formData.sex === 'ชาย'}
                 onChange={handleChange}
                 className="form-check-input"
                 required
@@ -217,9 +252,9 @@ export default function RegisterPage() {
               <input
                 type="radio"
                 id="female"
-                name="gender"
-                value="female"
-                checked={formData.gender === 'female'}
+                name="sex"
+                value="หญิง"
+                checked={formData.sex === 'หญิง'}
                 onChange={handleChange}
                 className="form-check-input"
                 required
@@ -230,9 +265,9 @@ export default function RegisterPage() {
               <input
                 type="radio"
                 id="other"
-                name="gender"
+                name="sex"
                 value="other"
-                checked={formData.gender === 'other'}
+                checked={formData.sex === 'other'}
                 onChange={handleChange}
                 className="form-check-input"
                 required
@@ -247,7 +282,7 @@ export default function RegisterPage() {
             <input
               type="date"
               id="dob"
-              name="dob"
+              name="Birthday"
               value={formData.dob}
               onChange={handleChange}
               className="form-control"
@@ -310,4 +345,4 @@ export default function RegisterPage() {
       </div>
     </div>
   );
-}
+    }
