@@ -85,57 +85,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Member Card 1 - ส่วนนี้มี bg-white อยู่แล้ว ฟอนต์ควรเป็นสีเข้ม */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="bg-gray-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-600">
-                <img
-                    src="" // <--- **ใส่ Path รูปภาพของคุณที่นี่**
-                    className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                [cool dog]
-              </h3>
-              <p className="text-blue-600 font-medium mb-2">
-                ตำแหน่ง CEO
-              </p>
-              <p className="text-gray-700 text-sm">
-                บริหารธุรกิจระดับหมื่นล้าน
-              </p>
-            </div>
-            {/* Member Card 2 */}
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-               <div className="bg-gray-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-600">
-                <img
-                    src="" // <--- **ใส่ Path รูปภาพของคุณที่นี่**
-                    className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                [cool cat]
-              </h3>
-              <p className="text-blue-600 font-medium mb-2">
-                ตำแหน่ง UX/UI Designer
-              </p>
-              <p className="text-gray-700 text-sm">
-                สร้างสรรค์ผลงานระดับพระกาฬ
-              </p>
-            </div>
-            {/* Member Card 3 */}
-             <div className="bg-white p-6 rounded-lg shadow-md text-center">
-               <div className="bg-gray-200 w-32 h-32 rounded-full mx-auto mb-4 flex items-center justify-center text-gray-600">
-                <img
-                    src="" alt="cool dog"
-                    className="w-[488.66px] h-[478.77px] object-cover rounded-lg mx-auto mb-4"
-                  />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                [cool bird]
-              </h3>
-              <p className="text-blue-600 font-medium mb-2">
-                ตำแหน่ง coder
-              </p>
-              <p className="text-gray-700 text-sm">
-                ทำทุกอย่าง
-              </p>
+              
             </div>
           </div>
         </section>
@@ -148,12 +98,8 @@ export default function AboutPage() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             ให้ทีมงานของเราช่วยนำพาธุรกิจของคุณก้าวไปอีกขั้นในโลกดิจิทัล
           </p>
-          <Link
-            href="/contact"
-            className="bg-white text-blue-600 hover:bg-blue-100 font-bold py-3 px-8 rounded-lg transition duration-300 ease-in-out text-lg shadow-lg"
-          >
+         
             เริ่มต้นโปรเจกต์กับเรา
-          </Link>
         </section>
       </div>
     </>

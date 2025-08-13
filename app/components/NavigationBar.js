@@ -37,7 +37,7 @@ export default function NavigationBar() {
               <Link href="/service" className="nav-link">บริการ</Link>
             </li>
             <li className="nav-item">
-              <Link href="/contact" className="nav-link">ติดต่อเรา</Link>
+              <Link href="/Contact" className="nav-link">ติดต่อเรา</Link>
             </li>
           </ul>
 
@@ -48,7 +48,7 @@ export default function NavigationBar() {
               เข้าสู่ระบบ
             </Link>
             {/* ปุ่มลงทะเบียน */}
-            <Link href="/register" className="btn btn-primary">
+            <Link href="/Register" className="btn btn-primary">
               ลงทะเบียน
             </Link>
           </div>

@@ -32,7 +32,7 @@ export default function EditUserPage() {
             lastname: user.lastname || '',
             address: user.address || '',
             sex: user.sex || '',
-            Birthday: user.birthday || '',
+            birthday: user.birthday || '',
           });
         }
       } catch (err) {
@@ -53,7 +53,7 @@ export default function EditUserPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://itdev.cmtc.ac.th:3000/api/users', {
+      const res = await fetch(' tp://itdev.cmtc.ac.th:3000/api/users', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, ...formData }),

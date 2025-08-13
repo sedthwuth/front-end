@@ -3,7 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import RegisterPage from './register/page';
+import Register from './Register/page';
 import NavigationBar from "../app/components/NavigationBar";
 import Footer from "../app/components/Footer";
 

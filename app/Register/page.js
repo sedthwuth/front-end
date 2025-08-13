@@ -49,7 +49,7 @@ const handleSubmit = async (e) => {
         lastname: formData.lastname,
         address: formData.address,
         sex: formData.sex,
-        birthday: formData.Birthday,
+        Birthday: formData.Birthday,
       }),
     });
 
@@ -156,13 +156,12 @@ const handleSubmit = async (e) => {
             <div className="input-group">
               <span className="input-group-text"><i className="bi bi-lock"></i></span>
               <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
+                type="data"
+                id="dob"
+                name="Brithday"
+                value={formData.dob}
                 onChange={handleChange}
                 className="form-control"
-                placeholder="ป้อนรหัสผ่าน"
                 required
               />
             </div>

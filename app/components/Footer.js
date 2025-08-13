@@ -18,7 +18,7 @@ export default function Footer() {
             <ul className="list-unstyled">
               <li><Link href="/" className="text-light text-decoration-none">หน้าแรก</Link></li>
               <li><Link href="/about" className="text-light text-decoration-none">เกี่ยวกับ</Link></li>
-              <li><Link href="/contact" className="text-light text-decoration-none">ติดต่อ</Link></li>
+              <li><Link href="/Contact" className="text-light text-decoration-none">ติดต่อ</Link></li>
             </ul>
           </div>
 

@@ -16,7 +16,7 @@ export default function () {
               <div className="card-body">
                 <h5 className="card-title">การเขียนเว็บไฃต์เบื้องต้น</h5>
                 <p className="card-text">เรียนรู้วิธีการในการเขียนเว็บไชต์เบื้องต้น</p>
-                <a href="/about/page.js" className="btn btn-primary">ดูรายละเอียด</a>
+                <a href="./website-creation" className="btn btn-primary">ดูรายละเอียด</a>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@ export default function () {
               <div className="card-body"> 
                 <h5 className="card-title">เรียนรู้การใช้ css </h5>
                 <p className="card-text">เรียนรู้ในการ css ในการตกเเต่งเว็บไชต์</p>
-                <a href="#" className="btn btn-primary">ดูรายละเอียด</a>
+                <a href="./css-learning" className="btn btn-primary">ดูรายละเอียด</a>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@ export default function () {
               <div className="card-body">
                 <h5 className="card-title">การใช้ภาษา python</h5>
                 <p className="card-text">เรียนรู้ในการใฃ้ภาษา python เบื้องต้น</p>
-                <a href="#" className="btn btn-primary">ดูรายละเอียด</a>
+                <a href="./python-learning" className="btn btn-primary">ดูรายละเอียด</a>
               </div>
             </div>
           </div>
