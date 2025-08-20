@@ -28,26 +28,26 @@ export default function pythonlearningPage() { // เปลี่ยนชื่
       {/* Global CSS styles for the page, adapted for JSX */}
       <style jsx global>{`'
         body {
-            background-color: #f8f9fa; /* สีพื้นหลังอ่อนๆ */
+            background-color: #c8d38bbd; /* สีพื้นหลังอ่อนๆ */
             font-family: 'Inter', sans-serif; /* ใช้ฟอนต์ Inter เพื่อให้อ่านง่ายขึ้น */
             font-weight: 500; /* ทำให้ตัวอักษรทั่วไปเข้มขึ้น */
         }
         .header-section {
-            background-color: #ffc107; /* สีเหลืองของ Bootstrap (Warning) สำหรับหัวข้อ Python */
-            color: #212529; /* สีข้อความเข้ม */
+            background-color: #ffffffff; /* สีเหลืองของ Bootstrap (Warning) สำหรับหัวข้อ Python */
+            color: #ffffffff; /* สีข้อความเข้ม */
             padding: 40px 0;
             margin-bottom: 30px;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
         }
         .header-section h1, .header-section p {
-            color: #212529; /* ตั้งค่าสีข้อความสำหรับ Header */
+            color: #dae1e9ff; /* ตั้งค่าสีข้อความสำหรับ Header */
         }
         .content-section {
             background-color: #ffffff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(224, 220, 220, 1);
         }
         h1, h2, h3, h4, h5, h6 {
             color: #ffc107; /* สีเหลืองของ Bootstrap สำหรับหัวข้อ */
@@ -59,7 +59,7 @@ export default function pythonlearningPage() { // เปลี่ยนชื่
             border-radius: 8px;
             overflow-x: auto; /* เปิดใช้งานการเลื่อนแนวนอนสำหรับโค้ดที่ยาว */
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            color: #333;
+            color: #ffffffff;
         }
         table {
             width: 100%;

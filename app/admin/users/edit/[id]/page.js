@@ -20,7 +20,7 @@ export default function EditUserPage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch(`http://itdev.cmtc.ac.th:3000/api/users/${id}`);
+        const res = await fetch(`http://itdev.cmtc.ac.th:3000/api/users/$ {id}`);
         const data = await res.json();
         if (data.length > 0) {
           const user = data[0];

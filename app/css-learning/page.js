@@ -28,12 +28,12 @@ export default function CssLearningPage() {
       {/* Global CSS styles for the page, adapted for JSX */}
       <style jsx global>{`
         body {
-            background-color: #000000ff; /* สีพื้นหลังอ่อนๆ */
+            background-color: rgba(223, 236, 227, 1); /* สีพื้นหลังอ่อนๆ */
             font-family: 'Inter', sans-serif; /* ใช้ฟอนต์ Inter เพื่อให้อ่านง่ายขึ้น */
             font-weight: 500; /* ทำให้ตัวอักษรทั่วไปเข้มขึ้น */
         }
         .header-section {
-            background-color: #0d6efd; /* สีน้ำเงินหลักของ Bootstrap */
+            background-color: #7ad4e4ff; /* สีน้ำเงินหลักของ Bootstrap */
             color: white;
             padding: 40px 0;
             margin-bottom: 30px;
@@ -47,11 +47,11 @@ export default function CssLearningPage() {
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
         h1, h2, h3, h4, h5, h6 {
-            color: #0d6efd; /* สีน้ำเงินหลักของ Bootstrap สำหรับหัวข้อ */
+            color: #ffffffff; /* สีน้ำเงินหลักของ Bootstrap สำหรับหัวข้อ */
             margin-bottom: 15px;
         }
         pre {
-            background-color: #e9ecef; /* สีเทาอ่อนสำหรับบล็อกโค้ด */
+            background-color: #e9ecef69; /* สีเทาอ่อนสำหรับบล็อกโค้ด */
             padding: 15px;
             border-radius: 8px;
             overflow-x: auto; /* เปิดใช้งานการเลื่อนแนวนอนสำหรับโค้ดที่ยาว */
@@ -70,7 +70,7 @@ export default function CssLearningPage() {
             text-align: left;
         }
         th {
-            background-color: #e2e6ea; /* พื้นหลังสีเข้มเล็กน้อยสำหรับส่วนหัวตาราง */
+            background-color: #90bfeeff; /* พื้นหลังสีเข้มเล็กน้อยสำหรับส่วนหัวตาราง */
             font-weight: bold;
         }
         ul {

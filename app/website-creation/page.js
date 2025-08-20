@@ -28,12 +28,12 @@ export default function websitecreationlearningPage() {
       {/* Global CSS styles for the page, adapted for JSX */}
       <style jsx global>{`
         body {
-            background-color: #000000ff; /* สีพื้นหลังอ่อนๆ */
+            background-color: #bcf0dcff; /* สีพื้นหลังอ่อนๆ */
             font-family: 'Inter', sans-serif; /* ใช้ฟอนต์ Inter เพื่อให้อ่านง่ายขึ้น */
             font-weight: 500; /* ทำให้ตัวอักษรทั่วไปเข้มขึ้น */
         }
         .header-section {
-            background-color: #6f42c1; /* Bootstrap purple */
+            background-color: #bbacd8ff; /* Bootstrap purple */
             color: white;
             padding: 40px 0;
             margin-bottom: 30px;
@@ -47,7 +47,7 @@ export default function websitecreationlearningPage() {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
         h1, h2, h3, h4, h5, h6 {
-            color: #6f42c1; /* Bootstrap purple for headings */
+            color: #fff2f2ff; /* Bootstrap purple for headings */
             margin-bottom: 15px;
         }
         pre {
@@ -56,7 +56,7 @@ export default function websitecreationlearningPage() {
             border-radius: 8px;
             overflow-x: auto; /* เปิดใช้งานการเลื่อนแนวนอนสำหรับโค้ดที่ยาว */
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            color: #333;
+            color: #000000ff;
         }
         table {
             width: 100%;
@@ -70,7 +70,7 @@ export default function websitecreationlearningPage() {
             text-align: left;
         }
         th {
-            background-color: #ffffffff; /* พื้นหลังสีเข้มเล็กน้อยสำหรับส่วนหัวตาราง */
+            background-color: #000000ff; /* พื้นหลังสีเข้มเล็กน้อยสำหรับส่วนหัวตาราง */
             font-weight: bold;
         }
         ul {
