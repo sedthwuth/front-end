@@ -1,0 +1,114 @@
+/* พื้นหลัง */
+.login-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #b9fbc0, #cdb4db, #a2d2ff);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* กล่อง Login */
+.login-card {
+  background: #ffffff;
+  width: 360px;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* หัวข้อ */
+.login-title {
+  text-align: center;
+  color: #7c3aed;
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+/* label */
+label {
+  font-size: 14px;
+  color: #444;
+}
+
+/* กล่อง input */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+
+.input-group .icon {
+  background: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  color: #666;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0 8px 8px 0;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #7c3aed;
+}
+
+/* remember */
+.remember {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  gap: 6px;
+}
+
+/* ปุ่ม */
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* footer */
+.login-footer {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+  color: #7c3aed;
+}
+
+.login-footer span {
+  cursor: pointer;
+}
+
+.login-footer span:hover {
+  text-decoration: underline;
+}
+
+.login-footer span:not(:last-child)::after {
+  content: " | ";
+  color: #999;
+}
